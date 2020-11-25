@@ -46,27 +46,32 @@ btnElem.addEventListener("click", function () {
   var selectColor = colorCar.value
   var selectMake = carMake.value
 
+  if(selectMake !== "" && selectColor === ""){
   axios.get('http://api-tutor.herokuapp.com/v1/cars/make/' + selectMake).then(function (result) {
     filteredMain.innerHTML=filterTemplateMain({
       main: result.data
     })
 
   })
+}
   
+  else if(selectColor !== "" && selectMake === ""){
   axios.get('http://api-tutor.herokuapp.com/v1/cars/color/' + selectColor).then(function (result) {
     filteredMain.innerHTML=filterTemplateMain({
       main: result.data
     })
 
   }) 
+}
 
+  else{
   axios.get('http://api-tutor.herokuapp.com/v1/cars/make/'+selectMake+'/color/'+ selectColor).then(function (result) {
     filteredMain.innerHTML=filterTemplateMain({
       main: result.data
     })
 
   })
-
+}
 
   console.log(selectMake)
   console.log(selectColor)
