@@ -9,7 +9,7 @@ const colorTemplateText = document.querySelector(".colorTemplate").innerHTML;
 const colorTemplate = Handlebars.compile(colorTemplateText);
 
 
-const  allElem= document.querySelector(".allC");
+const allElem= document.querySelector(".allCarsElem");
 const allCars = document.querySelector(".allCarList");
 const allCarTemplateText = document.querySelector(".allCarTemplate").innerHTML;
 const allCarTemplate = Handlebars.compile(allCarTemplateText);
@@ -33,3 +33,4 @@ axios.get("http://api-tutor.herokuapp.com/v1/cars").then(function (result) {
     all: result.data,
   });
 });
+
